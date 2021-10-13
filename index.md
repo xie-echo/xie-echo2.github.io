@@ -4,7 +4,7 @@
 
 ### 常用网站
 
-今日热榜
+<center>今日热榜
 
 [https://tophub.today](https://tophub.today){:target="_blank"}
 
