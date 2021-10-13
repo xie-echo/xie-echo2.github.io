@@ -1,7 +1,9 @@
-网站大全　——欢迎访问Xie Guibo的小站
+# 网站大全　——欢迎访问Xie Guibo的小站
 
-可Ctrl+F 输入关键词查找
+## 可Ctrl+F 输入关键词查找
+简法主页：
 
+[https://www.jianfast.com/?urm=wx04](https://www.jianfast.com/?urm=wx04 "简法主页")
 ### 常用网站
 
 今日热榜
