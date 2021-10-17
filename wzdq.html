@@ -98,10 +98,10 @@
     $("#AnchorContentToggle").click(function(){
 	var text = $(this).html();
 	if(text=="展开/收起目录▲"){
-	    $(this).html("已展开目录▼");
+	    $(this).html("展开/收起目录▼");
 	    $(this).attr({"title":"网站大全　——欢迎访问Xie Guibo的小站"});
 	}else{
-	    $(this).html("已收起目录▲");
+	    $(this).html("展开/收起目录▲");
 	    $(this).attr({"title":"收起"});
 	}
 	$("#AnchorContent").toggle();
@@ -131,7 +131,7 @@
 		$('.BlogAnchor').hide();
 	}
 	if(!expandNavBar){
-		$(this).html("已展开目录▼");
+		$(this).html("展开/收起目录▼");
 	$(this).attr({"title":"网站大全　——欢迎访问Xie Guibo的小站"});
 		$("#AnchorContent").hide();
 	}
