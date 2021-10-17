@@ -1,0 +1,1263 @@
+<title>常用网站大全　——欢迎访问Xie Guibo的小站 | xie-echo.github.io</title>
+<h4 style="text-align:center;">欢迎访问Xie Guibo的小站</h4>
+<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+ //是否显示导航栏
+ var showNavBar = true;
+ //是否展开导航栏
+ var expandNavBar = false;
+ //是否给标题自动增加序号
+ var addSNToTitle = false;
+
+ $(document).ready(function(){
+    var h1s = $("body").find("h1");
+    var h2s = $("body").find("h2");
+    var h3s = $("body").find("h3");
+    var h4s = $("body").find("h4");
+    var h5s = $("body").find("h5");
+    var h6s = $("body").find("h6");
+
+    var headCounts = [h1s.length, h2s.length, h3s.length, h4s.length, h5s.length, h6s.length];
+    var vH1Tag = null;
+    var vH2Tag = null;
+    for(var i = 0; i < headCounts.length; i++){
+	if(headCounts[i] > 0){
+	    if(vH1Tag == null){
+		vH1Tag = 'h' + (i + 1);
+	    }else if(vH2Tag == null){
+		vH2Tag = 'h' + (i + 1);
+		break;
+	    }
+	}
+    }
+    if(vH1Tag == null){
+	return;
+    }
+
+    $("body").prepend('<div class="BlogAnchor">' + 
+		'<span style="color:red;position:absolute;top:-6px;left:0px;cursor:pointer;" onclick="$(\'.BlogAnchor\').hide();">×</span>' +
+	'<p>' + 
+	    '<b id="AnchorContentToggle" title="收起" style="cursor:pointer;">目录▲</b>' + 
+	'</p>' + 
+	'<div class="AnchorContent" id="AnchorContent"> </div>' + 
+    '</div>' );
+
+    var vH1Index = 0;
+    var vH2Index = 0;
+    $("body").find(vH1Tag + (vH2Tag != null ? (','+vH2Tag) : '')).each(function(i,item){
+	var id = '';
+	var name = '';
+	var tag = $(item).get(0).tagName.toLowerCase();
+	var className = '';
+	if(tag == vH1Tag){
+	    id = name = ++vH1Index;
+	    name = id;
+	    vH2Index = 0;
+	    className = 'item_h1';
+	}else if(tag == vH2Tag){
+	    id = vH1Index + '_' + ++vH2Index;
+	    name = vH1Index + '.' + vH2Index;
+	    className = 'item_h2';
+	}
+	$(item).attr("id","wow"+id);
+		$(item).addClass("wow_head");
+		var originText = $(item).text();
+		if(addSNToTitle){
+			$(item).text(name + '. ' + originText);
+		}
+	$("#AnchorContent").css('max-height', ($(window).height() - 180) + 'px');
+	$("#AnchorContent").append('<li><a class="nav_item '+className+' anchor-link" onclick="return false;" href="#" link="#wow'+id+'">'+name+" · "+originText+'</a></li>');
+    });
+
+    $("#AnchorContentToggle").click(function(){
+	var text = $(this).html();
+	if(text=="目录▲"){
+	    $(this).html("目录▼");
+	    $(this).attr({"title":"网站大全　——欢迎访问Xie Guibo的小站"});
+	}else{
+	    $(this).html("目录▲");
+	    $(this).attr({"title":"收起"});
+	}
+	$("#AnchorContent").toggle();
+    });
+    $(".anchor-link").click(function(){
+	$("html,body").animate({scrollTop: $($(this).attr("link")).offset().top}, 500);
+    });
+
+	var headerNavs = $(".BlogAnchor li .nav_item");
+	var headerTops = [];
+	$(".wow_head").each(function(i, n){
+		headerTops.push($(n).offset().top);
+	});
+	$(window).scroll(function(){
+		var scrollTop = $(window).scrollTop();
+		$.each(headerTops, function(i, n){
+			var distance = n - scrollTop;
+			if(distance >= 0){
+				$(".BlogAnchor li .nav_item.current").removeClass('current');
+				$(headerNavs[i]).addClass('current');
+				return false;
+			}
+		});
+	});
+
+	if(!showNavBar){
+		$('.BlogAnchor').hide();
+	}
+	if(!expandNavBar){
+		$(this).html("目录▼");
+	$(this).attr({"title":"网站大全　——欢迎访问Xie Guibo的小站"});
+		$("#AnchorContent").hide();
+	}
+ });
+</script>
+<style>
+    /*导航*/
+    .BlogAnchor {
+	background: #f1f1f1;
+	padding: 3px;
+	line-height: 120%;
+	position: fixed;
+	right: 10px;
+	top: 60px;
+	border: 1px solid #aaaaaa;
+    }
+    .BlogAnchor p {
+	font-size: 18px;
+	color: #15a230;
+	margin: 0 0 0.3rem 0;
+	text-align: right;
+    }
+    .BlogAnchor .AnchorContent {
+	padding: 5px 0px;
+	overflow: auto;
+    }
+    .BlogAnchor li{
+	text-indent: 0.5rem;
+	font-size: 14px;
+	list-style: none;
+    }
+	.BlogAnchor li .nav_item{
+		padding: 3px;
+	}
+    .BlogAnchor li .item_h1{
+	margin-left: 0rem;
+    }
+    .BlogAnchor li .item_h2{
+	margin-left: 2rem;
+	font-size: 0.8rem;
+    }
+	.BlogAnchor li .nav_item.current{
+		color: white;
+		background-color: #5cc26f;
+	}
+    #AnchorContentToggle {
+	font-size: 20px;
+	font-weight: normal;
+	color: #FFF;
+	display: inline-block;
+	line-height: 20px;
+	background: #5cc26f;
+	font-style: normal;
+	padding: 1px 8px;
+    }
+    .BlogAnchor a:hover {
+	color: #5cc26f;
+    }
+    .BlogAnchor a {
+	text-decoration: none;
+    }
+</style>
+
+<h2>常用网站</h2>
+
+<p>今日热榜</p>
+
+<p><a href="https://tophub.today">https://tophub.today</a>{:target=&quot;_blank&quot;}</p>
+
+<p>微博搜索-热搜榜</p>
+
+<p><a href="https://s.weibo.com/top/summary?cate=realtimehot">https://s.weibo.com/top/summary?cate=realtimehot</a>{:target=&quot;_blank&quot;}</p>
+
+<p>抖音网页版（电脑浏览器/电脑模式打开）</p>
+
+<p><a href="https://www.douyin.com">https://www.douyin.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>tiktok国际版（网页版）</p>
+
+<p><a href="https://urlebird.com">https://urlebird.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>searx（搜索引擎）</p>
+
+<p><a href="https://searx.space/">https://searx.space</a>{:target=&quot;_blank&quot;}</p>
+
+<p>Topbook（高效生活视频书）</p>
+
+<p><a href="https://topbook.cc/overview">https://topbook.cc/overview</a>{:target=&quot;_blank&quot;}</p>
+
+<p>码云Gitee 开源项目</p>
+
+<p><a href="https://gitee.com/explore/all">https://gitee.com/explore/all</a>{:target=&quot;_blank&quot;}</p>
+
+<hr/>
+
+<h2>优质推荐</h2>
+
+<p>跨平台收藏工具</p>
+
+<p><a href="https://withpinbox.com">https://withpinbox.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>广告查查（数字广告搜索引擎/营销策略趋势/行业风向）</p>
+
+<p><a href="https://www.adbug.cn">https://www.adbug.cn</a>{:target=&quot;_blank&quot;}</p>
+
+<p>文件格式转换</p>
+
+<p><a href="https://convertio.co/zh/">https://convertio.co/zh</a>{:target=&quot;_blank&quot;}</p>
+
+<p>logo在线设计</p>
+
+<p><a href="http://www.uugai.com/">http://www.uugai.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>极像素（几百亿像素的照片）</p>
+
+<p><a href="https://www.sigoo.com/">https://www.sigoo.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>My Free MP3</p>
+
+<p><a href="http://tool.liumingye.cn/music">http://tool.liumingye.cn/music</a>{:target=&quot;_blank&quot;}</p>
+
+<p>VirusTotal查毒</p>
+
+<p><a href="https://www.virustotal.com">https://www.virustotal.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>Virscan查毒</p>
+
+<p><a href="https://virscan.org">https://virscan.org</a>{:target=&quot;_blank&quot;}</p>
+
+<p>大数据导航</p>
+
+<p><a href="http://hao.199it.com/">http://hao.199it.com/</a>{:target=&quot;_blank&quot;}</p>
+
+<p>全球新冠疫情数据可视化</p>
+
+<p><a href="https://gisanddata.maps.arcgis.com/apps/dashboards/bda7594740fd40299423467b48e9ecf6">https://gisanddata.maps.arcgis.com/apps/dashboards/bda7594740fd40299423467b48e9ecf6</a>{:target=&quot;_blank&quot;}</p>
+
+<p>专业软件合集</p>
+
+<p><a href="http://pan.aihao.cc/">http://pan.aihao.cc</a>{:target=&quot;_blank&quot;}</p>
+
+<p>系统镜像、软件下载</p>
+
+<p><a href="https://mirrors.dtops.cc">https://mirrors.dtops.cc</a>{:target=&quot;_blank&quot;}</p>
+
+<p>以数据看世界</p>
+
+<p><a href="https://ourworldindata.org">https://ourworldindata.org</a>{:target=&quot;_blank&quot;}</p>
+
+<p>全球新冠肺炎实时疫情地图</p>
+
+<p><a href="http://worldmap.ifnews.com/chinamap/china/wmap">http://worldmap.ifnews.com/chinamap/china/wmap</a>{:target=&quot;_blank&quot;}</p>
+
+<p>网页模拟Win11</p>
+
+<p><a href="https://win11.blueedge.me/">https://win11.blueedge.me</a>{:target=&quot;_blank&quot;}</p>
+
+<p>搜英文缩写</p>
+
+<p><a href="http://m.shortof.com">http://m.shortof.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p><a href="http://shortof.com">http://shortof.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>资源大亨（需电脑注册，手机可能注册不了，选择QQ注册即可）</p>
+
+<p><a href="https://www.vipsrc.com/forum.php">https://www.vipsrc.com/forum.php</a>{:target=&quot;_blank&quot;}</p>
+
+<hr/>
+
+<h2>影视在线观看/下载</h2>
+
+<p>快看影视（在线）</p>
+
+<p><a href="http://www.kuaikan66.com/">http://www.kuaikan66.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>片库（在线/磁力）</p>
+
+<p><a href="https://www.pianku.li">https://www.pianku.li</a>{:target=&quot;_blank&quot;}</p>
+
+<p>真不卡</p>
+
+<p><a href="http://www.zhenbuka.vip/">http://www.zhenbuka.vip</a>{:target=&quot;_blank&quot;}</p>
+
+<p>Mp4电影（在线/磁力）</p>
+
+<p><a href="https://www.domp4.cc">https://www.domp4.cc</a>{:target=&quot;_blank&quot;}</p>
+
+<p>两个BT（在线/BT）</p>
+
+<p><a href="https://www.bttwo.com/">https://www.bttwo.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>奈菲影视（在线）</p>
+
+<p><a href="https://www.nfmovies.com/">https://www.nfmovies.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>4K屋（在线/磁力）</p>
+
+<p><a href="http://www.kkkkwo.com/">http://www.kkkkwo.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>在线之家（在线/网盘）</p>
+
+<p><a href="https://www.zxzj.me/">https://www.zxzj.me</a>{:target=&quot;_blank&quot;}</p>
+
+<p>比特大雄（BT）</p>
+
+<p><a href="https://www.btdx8.com/">https://www.btdx8.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>独播库（在线）</p>
+
+<p><a href="https://www.duboku.net/">https://www.duboku.net</a>{:target=&quot;_blank&quot;}</p>
+
+<p>MAG磁力站（磁力）</p>
+
+<p><a href="http://mag234.com/home.html">http://mag234.com/home.html</a>{:target=&quot;_blank&quot;}</p>
+
+<p>字幕库</p>
+
+<p><a href="http://www.zimuku.la/">http://www.zimuku.la/</a>{:target=&quot;_blank&quot;}</p>
+
+<p>影猫mvcat</p>
+
+<p><a href="http://www.mvcat.com/">http://www.mvcat.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>看电影666（在线）</p>
+
+<p><a href="https://www.wxkdy666.com/">https://www.wxkdy666.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>电影天堂（磁力）</p>
+
+<p><a href="http://www.dytt89.com/">http://www.dytt89.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>南瓜电影（在线）</p>
+
+<p><a href="http://www.nangua55.com">http://www.nangua55.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>片库cf</p>
+
+<p><a href="http://pianku.cf/">http://pianku.cf</a>{:target=&quot;_blank&quot;}</p>
+
+<p>奈飞星</p>
+
+<p><a href="https://nfstar.net/">https://nfstar.net</a>{:target=&quot;_blank&quot;}</p>
+
+<p>茶杯狐</p>
+
+<p><a href="https://www.cupfox.com">https://www.cupfox.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>电影先生</p>
+
+<p><a href="http://dianying.im">http://dianying.im</a>{:target=&quot;_blank&quot;}</p>
+
+<p>追剧达人（在线/vip解析）</p>
+
+<p><a href="http://vipmv.tv">http://vipmv.tv</a>{:target=&quot;_blank&quot;}</p>
+
+<p>MP4pa（在线）</p>
+
+<p><a href="https://www.mp4pa.com">https://www.mp4pa.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>下片网（在线/BT）</p>
+
+<p><a href="http://www.xiepp.cc">http://www.xiepp.cc</a>{:target=&quot;_blank&quot;}</p>
+
+<p>迅雷电影天堂720</p>
+
+<p><a href="https://www.xl720.com">https://www.xl720.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>Mp4电影<em>最新电影下载</em>最新高清MP4电影资源下载</p>
+
+<p><a href="https://m.domp4.cc">https://domp4.cc</a>{:target=&quot;_blank&quot;}</p>
+
+<p>66影视网</p>
+
+<p><a href="http://www.66ys.co">http://www.66ys.co</a>{:target=&quot;_blank&quot;}</p>
+
+<p>简单动漫—BT下载（动漫/动画/漫画）</p>
+
+<p><a href="https://www.36dm.club">https://www.36dm.club</a>{:target=&quot;_blank&quot;}</p>
+
+<h4>国外BT下载站（搜索需用英文）</h4>
+
+<p>国内美剧站基本上都是从这几个站获得最新的片源，然后由字幕组翻译后压片的</p>
+
+<p>Rarbg</p>
+
+<p><a href="https://rarbgto.org">https://rarbgto.org</a>{:target=&quot;_blank&quot;}</p>
+
+<p>YTS</p>
+
+<p><a href="https://yts.mx">https://yts.mx</a>{:target=&quot;_blank&quot;}</p>
+
+<p>ETTV</p>
+
+<p><a href="https://www.ettvcentral.com">https://www.ettvcentral.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>EZTV</p>
+
+<p><a href="https://eztv.re">https://eztv.re</a>{:target=&quot;_blank&quot;}</p>
+
+<p>YIFY Torrent</p>
+
+<p><a href="https://yifytorrent.vip">https://yifytorrent.vip</a>{:target=&quot;_blank&quot;}</p>
+
+<p>Sub DH 高清影视下载</p>
+
+<p><a href="https://subdh.com">https://subdh.com</a>{:target=&quot;_blank&quot;}</p>
+
+<hr/>
+
+<h2>小说下载</h2>
+
+<p><a href="http://www.xqishu.com">http://www.xqishu.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p><a href="http://downnovel.co">http://downnovel.co</a>{:target=&quot;_blank&quot;}</p>
+
+<p><a href="https://www.qishuta.com">https://www.qishuta.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p><a href="http://www.qishu.cc">http://www.qishu.cc</a>{:target=&quot;_blank&quot;}</p>
+
+<hr/>
+
+<h2>学习/学术/杂志/资料</h2>
+
+<p>mygraphpaper（在线制作打印方格纸）</p>
+
+<p><a href="https://www.mygraphpaper.com/index.php?lang=zh-hans">https://www.mygraphpaper.com/index.php?lang=zh-hans</a>{:target=&quot;_blank&quot;}</p>
+
+<p>读者文摘（杂志）</p>
+
+<p><a href="https://www.dzwzzz.com">https://www.dzwzzz.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>草上原网（作文、故事、诗词、范文、散文、摘抄）</p>
+
+<p><a href="https://www.llysc.cn/">https://www.llysc.cn</a>{:target=&quot;_blank&quot;}</p>
+
+<p>爱助攻大学资料库</p>
+
+<p><a href="https://www.aizhugong.com/forum.php">https://www.aizhugong.com/forum.php</a>{:target=&quot;_blank&quot;}</p>
+
+<p>化工百科</p>
+
+<p><a href="https://www.chembk.com/cn">https://www.chembk.com/cn</a>{:target=&quot;_blank&quot;}</p>
+
+<p>onlinelibrary（学术）</p>
+
+<p><a href="https://www.onlinelibrary.wiley.com">https://www.onlinelibrary.wiley.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>SCI-HUB</p>
+
+<p><a href="https://www.sci-hub.ren">https://www.sci-hub.ren</a>{:target=&quot;_blank&quot;}</p>
+
+<p><a href="https://www.sci-hub.se">https://www.sci-hub.se</a>{:target=&quot;_blank&quot;}</p>
+
+<p><a href="https://www.sci-hub.ru">https://www.sci-hub.ru</a>{:target=&quot;_blank&quot;}</p>
+
+<p><a href="https://www.sci-hub.st">https://www.sci-hub.st</a>{:target=&quot;_blank&quot;}</p>
+
+<hr/>
+
+<h2>文件共享/临时网盘</h2>
+
+<p>奶牛快传</p>
+
+<p><a href="https://cowtransfer.com">https://cowtransfer.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>虫洞</p>
+
+<p><a href="https://wormhole.app">https://wormhole.app</a>{:target=&quot;_blank&quot;}</p>
+
+<p>airportal</p>
+
+<p><a href="https://airportal.cn">https://airportal.cn</a>{:target=&quot;_blank&quot;}</p>
+
+<p>快牙</p>
+
+<p><a href="https://yun.kuaiya.cn">https://yun.kuaiya.cn</a>{:target=&quot;_blank&quot;}</p>
+
+<p>wetransfer</p>
+
+<p><a href="https://wetransfer.com">https://wetransfer.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>Gofile</p>
+
+<p><a href="https://gofile.io">https://gofile.io</a>{:target=&quot;_blank&quot;}</p>
+
+<p>拷贝兔</p>
+
+<p><a href="https://cp.anyknew.com">https://cp.anyknew.com</a>{:target=&quot;_blank&quot;}</p>
+
+<hr/>
+
+<h2>在线工具</h2>
+
+<p>阅后即焚消息</p>
+
+<p><a href="https://privnote.com">https://privnote.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>二维码生成</p>
+
+<p><a href="https://cli.im">https://cli.im</a>{:target=&quot;_blank&quot;}</p>
+
+<p>在线工具</p>
+
+<p><a href="https://www.qtool.net">https://www.qtool.net</a>{:target=&quot;_blank&quot;}</p>
+
+<p>刘明野的工具箱</p>
+
+<p><a href="http://tool.liumingye.cn/">http://tool.liumingye.cn</a>{:target=&quot;_blank&quot;}</p>
+
+<p>文件加密/ 解密</p>
+
+<p><a href="https://pnote.net/encrypt/">https://pnote.net/encrypt</a>{:target=&quot;_blank&quot;}</p>
+
+<p>视频导出帧画面</p>
+
+<p><a href="https://v.pnote.net/player">https://v.pnote.net/player</a>{:target=&quot;_blank&quot;}</p>
+
+<p>皮皮直连</p>
+
+<p><a href="https://www.ppzhilian.com/">https://www.ppzhilian.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>多搜搜（以图识图）</p>
+
+<p>[http://www.duososo.com/index<em>shitu.php](http://www.duososo.com/index</em>shitu.php){:target=&quot;_blank&quot;}</p>
+
+<p>photopea在线ps</p>
+
+<p><a href="https://www.photopea.com/">https://www.photopea.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>格式转换</p>
+
+<p><a href="https://zh.pickfrom.net/">https://zh.pickfrom.net</a>{:target=&quot;_blank&quot;}</p>
+
+<p>TXT文本在线处理工具</p>
+
+<p><a href="http://www.txttool.com">http://www.txttool.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>Char Dust（图片转字符画）</p>
+
+<p><a href="https://www.yunyoujun.cn/char-dust">https://www.yunyoujun.cn/char-dust</a>{:target=&quot;_blank&quot;}</p>
+
+<p>Comixify（短视频/图片转换成漫画风格）</p>
+
+<p><a href="https://comixify.ai">https://comixify.ai</a>{:target=&quot;_blank&quot;}</p>
+
+<p>万能格式转换</p>
+
+<p><a href="https://www.alltoall.net/">https://www.alltoall.net</a>{:target=&quot;_blank&quot;}</p>
+
+<p>智能聊天机器人</p>
+
+<p><a href="http://www.robot-g.com/">http://www.robot-g.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>网页语音转文字</p>
+
+<p><a href="https://met.red/h/audio/probation">https://met.red/h/audio/probation</a>{:target=&quot;_blank&quot;}</p>
+
+<p>高精度IP定位</p>
+
+<p><a href="https://met.red/h/location/queryIp">https://met.red/h/location/queryIp</a>{:target=&quot;_blank&quot;}</p>
+
+<p>在线视频剪辑</p>
+
+<p><a href="https://beecut.cn/online-video-editor">https://beecut.cn/online-video-editor</a>{:target=&quot;_blank&quot;}</p>
+
+<p>在线录屏</p>
+
+<p><a href="https://www.videograbber.net/zh/">https://www.videograbber.net/zh</a>{:target=&quot;_blank&quot;}</p>
+
+<p>相片Exif查看</p>
+
+<p><a href="http://tu.chacuo.net/imageexif">http://tu.chacuo.net/imageexif</a>{:target=&quot;_blank&quot;}</p>
+
+<p>二维码制作</p>
+
+<p><a href="https://cli.im/mob">https://cli.im/mob</a>{:target=&quot;_blank&quot;}</p>
+
+<p>腾讯哈勃查毒</p>
+
+<p><a href="https://habo.qq.com">https://habo.qq.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>一个工具箱（视频音频/图像/日期/文字编辑/加密解密/计算换算）</p>
+
+<p><a href="http://www.atoolbox.net/">http://www.atoolbox.net</a>{:target=&quot;_blank&quot;}</p>
+
+<p>在线工具 - 你的工具箱</p>
+
+<p><a href="https://tool.lu">https://tool.lu</a>{:target=&quot;_blank&quot;}</p>
+
+<p>ffmpeg 音视频混流</p>
+
+<p><a href="https://maple3142.github.io/mergemp4">https://maple3142.github.io/mergemp4</a>{:target=&quot;_blank&quot;}</p>
+
+<p>在线文件压缩（图片、视频、PDF文件压缩）</p>
+
+<p><a href="https://www.apowersoft.cn/compress-file-online">https://www.apowersoft.cn/compress-file-online</a>{:target=&quot;_blank&quot;}</p>
+
+<p>微信快捷工具</p>
+
+<p><a href="https://www.leikeji.com/wxtool">https://www.leikeji.com/wxtool</a>{:target=&quot;_blank&quot;}</p>
+
+<p>BV号转换</p>
+
+<p><a href="https://www.fripside.cn/2020/315.html">https://www.fripside.cn/2020/315.html</a>{:target=&quot;_blank&quot;}</p>
+
+<p>全能图床</p>
+
+<p><a href="https://tool.liumingye.cn/tuchuang/">https://tool.liumingye.cn/tuchuang</a>{:target=&quot;_blank&quot;}</p>
+
+<p>解锁音乐软件加密的音乐</p>
+
+<p><a href="https://tool.liumingye.cn/music/unlock-music/">https://tool.liumingye.cn/music/unlock-music</a>{:target=&quot;_blank&quot;}</p>
+
+<p>m3u8地址在线播放器 | <a href="http://tool.liumingye.cn/m3u8/">http://tool.liumingye.cn/m3u8</a>{:target=&quot;_blank&quot;}</p>
+
+<p>在线音频处理</p>
+
+<p><a href="https://www.weixinsyt.com">https://www.weixinsyt.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>i笛云听写 - 免费语音转文字（注册用户提供每天10小时额度，单音频时长3小时，文件体积最大500MB）</p>
+
+<p><a href="http://www.voiceclub.cn/#/home/transaudio">http://www.voiceclub.cn/#/home/transaudio</a>{:target=&quot;_blank&quot;}</p>
+
+<p>在线制作思维导图</p>
+
+<p><a href="https://flowchart.fun">https://flowchart.fun</a>{:target=&quot;_blank&quot;}</p>
+
+<p>在线地图</p>
+
+<p><a href="https://www.earthol.com">https://www.earthol.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>Zoom Earth（实时气象卫星图像、地球与台风实时图像）</p>
+
+<p><a href="https://zoom.earth">https://zoom.earth</a>{:target=&quot;_blank&quot;}</p>
+
+<p>diagrams流程图</p>
+
+<p><a href="https://app.diagrams.net">https://app.diagrams.net</a>{:target=&quot;_blank&quot;}</p>
+
+<p>squoosh图片压缩</p>
+
+<p><a href="https://squoosh.net">https://squoosh.net</a>{:target=&quot;_blank&quot;}</p>
+
+<p>根据动漫图找出处（以图识图）</p>
+
+<p><a href="https://trace.moe">https://trace.moe</a>{:target=&quot;_blank&quot;}</p>
+
+<p>Free Typing Tutor（在线练习打字）</p>
+
+<p><a href="https://www.typing.com">https://www.typing.com</a>{:target=&quot;_blank&quot;}</p>
+
+<hr/>
+
+<h2>导航网站</h2>
+
+<p>guidebook</p>
+
+<p><a href="https://www.guidebook.top">https://www.guidebook.top</a>{:target=&quot;_blank&quot;}</p>
+
+<p>简法主页</p>
+
+<p><a href="https://www.jianfast.com">https://www.jianfast.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>炫猿旧版</p>
+
+<p><a href="http://oo1.win">http://oo1.win</a>{:target=&quot;_blank&quot;}</p>
+
+<p>便民查询网</p>
+
+<p><a href="https://www.51240.com/">https://www.51240.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>官网大全（只收录真正的官方网站）</p>
+
+<p><a href="https://guanwangdaquan.com">https://guanwangdaquan.com</a>{:target=&quot;_blank&quot;}</p>
+
+<hr/>
+
+<h2>素材网站</h2>
+
+<p>mixkit（视频素材）</p>
+
+<p><a href="https://mixkit.co/videos">https://mixkit.co/videos</a>{:target=&quot;_blank&quot;}</p>
+
+<p>pngimg透明底素材</p>
+
+<p><a href="http://pngimg.com">http://pngimg.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>极简壁纸</p>
+
+<p><a href="https://bz.zzzmh.cn/">https://bz.zzzmh.cn</a>{:target=&quot;_blank&quot;}</p>
+
+<p>ICO图标下载（图标下载、图标转换）</p>
+
+<p><a href="https://www.easyicon.net/">https://www.easyicon.net</a>{:target=&quot;_blank&quot;}</p>
+
+<p>动漫图片和壁纸</p>
+
+<p>[https://anime-pictures.net/?lang=zh<em>CN](https://anime-pictures.net/?lang=zh</em>CN){:target=&quot;_blank&quot;}</p>
+
+<p>Pexels</p>
+
+<p><a href="https://www.pexels.com">https://www.pexels.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>GetWallpapers</p>
+
+<p><a href="https://getwallpapers.com/">https://getwallpapers.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>vecteezy（矢量图形、图片、视频）</p>
+
+<p><a href="https://www.vecteezy.com/">https://www.vecteezy.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>Picjumbo</p>
+
+<p><a href="https://picjumbo.com">https://picjumbo.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>Magdeleine</p>
+
+<p><a href="https://magdeleine.co">https://magdeleine.co</a>{:target=&quot;_blank&quot;}</p>
+
+<p>Pixabay</p>
+
+<p><a href="https://pixabay.com">https://pixabay.co</a>{:target=&quot;<em>blank&quot;}<a href="https://pixabay.com">m</a>{:target=&quot;</em>blank&quot;}</p>
+
+<p>Ssyer</p>
+
+<p><a href="https://www.ssyer.com/home">https://www.ssyer.com/home</a>{:target=&quot;_blank&quot;}</p>
+
+<p>Lifeofpix</p>
+
+<p><a href="https://www.lifeofpix.com">https://www.lifeofpix.com</a>{:target=&quot;_blank&quot;}</p>
+
+<hr/>
+
+<h2>高效工作</h2>
+
+<p>个人简历网</p>
+
+<p><a href="http://m.gerenjianli.com/">http://gerenjianli.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>麦客表单（问卷调查，线上预约，报名管理，在线商城）</p>
+
+<p><a href="https://www.mikecrm.com/indexForm.php">https://www.mikecrm.com/indexForm.php</a>{:target=&quot;_blank&quot;}</p>
+
+<p>分秒帧（自媒体工具-音视频协作/团队协同工具/在线审片/高速网盘/临时网盘）</p>
+
+<p><a href="https://mediatrack.cn/">https://mediatrack.cn</a>{:target=&quot;_blank&quot;}</p>
+
+<hr/>
+
+<h2>解析工具</h2>
+
+<p>视频解析网</p>
+
+<p><a href="https://www.parsevideo.com/">https://www.parsevideo.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>全网音乐解析</p>
+
+<p><a href="https://music.sonimei.cn/">https://music.sonimei.cn</a>{:target=&quot;_blank&quot;}</p>
+
+<p>不死鸟音乐搜索汇总</p>
+
+<p><a href="https://iao.su/2217/">https://iao.su/2217</a>{:target=&quot;_blank&quot;}</p>
+
+<p>在线视频解析</p>
+
+<p><a href="https://met.red/h/vedio/index">https://met.red/h/vedio/index</a>{:target=&quot;_blank&quot;}</p>
+
+<p>hear you音乐</p>
+
+<p><a href="http://music.jsososo.com">http://music.jsososo.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>抖音批量解析</p>
+
+<p><a href="https://www.yibaowen.com/videoAnalysis?platform=douyin">https://www.yibaowen.com/videoAnalysis?platform=douyin</a>{:target=&quot;_blank&quot;}</p>
+
+<p>Parsevideo在线视频解析</p>
+
+<p><a href="https://pv.vlogdownloader.com">https://pv.vlogdownloader.com</a>{:target=&quot;_blank&quot;}</p>
+
+<hr/>
+
+<h2>软件下载/科技资讯</h2>
+
+<p>吾爱破解</p>
+
+<p><a href="https://www.52pojie.cn">https://www.52pojie.cn</a>{:target=&quot;_blank&quot;}</p>
+
+<p>飘云阁</p>
+
+<p><a href="https://www.chinapyg.com">https://www.chinapyg.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>423down</p>
+
+<p><a href="https://www.423down.com">https://www.423down.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>异星软件空间</p>
+
+<p><a href="https://www.yxssp.com">https://www.yxssp.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>大众软件库</p>
+
+<p><a href="https://www.dzrjk.com">https://www.dzrjk.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>飞翔下载</p>
+
+<p><a href="https://www.52z.com/fl.html">https://www.52z.com/fl.html</a>{:target=&quot;_blank&quot;}</p>
+
+<p>PortableSoft</p>
+
+<p><a href="https://www.portablesoft.org/">https://www.portablesoft.org</a>{:target=&quot;_blank&quot;}</p>
+
+<p>N软网</p>
+
+<p><a href="https://www.nruan.com/">https://www.nruan.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>果核剥壳</p>
+
+<p><a href="https://www.ghxi.com/">https://www.ghxi.com/</a>{:target=&quot;_blank&quot;}</p>
+
+<p>威航软件园</p>
+
+<p><a href="https://www.7a8k.com/">https://www.7a8k.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>黑域基地</p>
+
+<p><a href="https://www.hybase.com/">https://www.hybase.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>filehippo</p>
+
+<p><a href="https://filehippo.com/zh/">https://filehippo.com/zh</a>{:target=&quot;_blank&quot;}</p>
+
+<p>小众软件</p>
+
+<p><a href="https://www.appinn.com/">https://www.appinn.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>电手IT</p>
+
+<p><a href="https://www.dianshouit.com/">https://www.dianshouit.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>软件缘</p>
+
+<p><a href="https://www.appcgn.com/">https://www.appcgn.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>异次元</p>
+
+<p><a href="https://www.iplaysoft.com">https://www.iplaysoft.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>Ordinary</p>
+
+<p><a href="http://a-1.vip/exe/#appList">http://a-1.vip/exe/#appList</a>{:target=&quot;_blank&quot;}</p>
+
+<p>Go破解</p>
+
+<p><a href="https://www.gopojie.net">https://www.gopojie.net</a>{:target=&quot;_blank&quot;}</p>
+
+<p>MODDROID（安卓软件、游戏）</p>
+
+<p><a href="https://moddroid.co">https://moddroid.co</a>{:target=&quot;_blank&quot;}</p>
+
+<p>下一个好软件</p>
+
+<p><a href="https://x1g.la/">https://x1g.la</a>{:target=&quot;_blank&quot;}</p>
+
+<p>小羿</p>
+
+<p><a href="https://www.xiaoyi.vc/">https://www.xiaoyi.vc</a>{:target=&quot;_blank&quot;}</p>
+
+<p>有搞机</p>
+
+<p><a href="https://x1g.la/navs">https://x1g.la/navs</a>{:target=&quot;_blank&quot;}</p>
+
+<p>炫技巧</p>
+
+<p><a href="https://blog.xydh.fun">https://blog.xydh.fun</a>{:target=&quot;_blank&quot;}</p>
+
+<p>马小帮</p>
+
+<p><a href="https://www.maxiaobang.com/">https://www.maxiaobang.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>神器云</p>
+
+<p><a href="http://www.sqy666.com">http://www.sqy666.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>前线乐园</p>
+
+<p><a href="https://www.yijingying.com">https://www.yijingying.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>博客园</p>
+
+<p><a href="https://www.cnblogs.com">https://www.cnblogs.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>CSDN（专业开发者社区）</p>
+
+<p><a href="https://www.csdn.net">https://www.csdn.net</a>{:target=&quot;_blank&quot;}</p>
+
+<p>吾爱分享</p>
+
+<p><a href="https://52sharing.cn">https://52sharing.cn</a>{:target=&quot;_blank&quot;}</p>
+
+<p>吾爱山海</p>
+
+<p><a href="https://5ish.cn">https://5ish.cn</a>{:target=&quot;_blank&quot;}</p>
+
+<p>趣乐兔funletu</p>
+
+<p><a href="https://funletu.com">https://funletu.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>资源分享站</p>
+
+<p><a href="http://www.awccc.com/">http://www.awccc.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>TechBench（Windows镜像、Office安装包）</p>
+
+<p><a href="https://tb.rg-adguard.net">https://tb.rg-adguard.net</a>{:target=&quot;_blank&quot;}</p>
+
+<p>PotPlayer播放器中文网</p>
+
+<p><a href="http://www.potplayercn.com">http://www.potplayercn.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>3DM游戏网（单机游戏大全）</p>
+
+<p><a href="https://m.3dmgame.com">https://m.3dmgame.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>FossHub</p>
+
+<p><a href="https://www.fosshub.com">https://www.fosshub.com</a>{:target=&quot;_blank&quot;}</p>
+
+<hr/>
+
+<h2>搞机/系统/IT</h2>
+
+<p>DriverGuide（硬件驱动程序大全）</p>
+
+<p><a href="https://www.driverguide.com">https://www.driverguide.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>（网站介绍<a href="https://funletu.com/driverguide-hardware-driver">https://funletu.com/driverguide-hardware-driver</a>{:target=&quot;_blank&quot;}）</p>
+
+<p>文件百科（dll文件下载,exe进程查询,驱动,打印机驱动下载）</p>
+
+<p><a href="https://www.wenjian.net">https://www.wenjian.net</a>{:target=&quot;_blank&quot;}</p>
+
+<p>凤凰系统 - Phoenix OS</p>
+
+<p><a href="http://www.phoenixos.com">http://www.phoenixos.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>蓝桥云课（在线做实验，高效学编程）</p>
+
+<p><a href="https://www.lanqiao.cn/mobile">https://www.lanqiao.cn/mobile</a>{:target=&quot;_blank&quot;}</p>
+
+<h3>操作系统下载</h3>
+
+<p>官方镜像（MSDN）</p>
+
+<p><a href="https://msdn.itellyou.cn">https://msdn.itellyou.cn</a>{:target=&quot;_blank&quot;}</p>
+
+<p>官方镜像（itellyou）</p>
+
+<p><a href="https://next.itellyou.cn">https://next.itellyou.cn</a>{:target=&quot;_blank&quot;}</p>
+
+<p>官方镜像（MSDN系统库）</p>
+
+<p><a href="https://www.xitongku.com">https://www.xitongku.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>吻妻系统（win7）</p>
+
+<p><a href="https://www.newxitong.com">https://www.newxitong.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>极简系统</p>
+
+<p><a href="https://www.sysmini.com">https://www.sysmini.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>Y-OS系统</p>
+
+<p><a href="http://y-os.net">http://y-os.net</a>{:target=&quot;_blank&quot;}</p>
+
+<p>系统城</p>
+
+<p><a href="http://m.xitongcheng.com">http://m.xitongcheng.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>爱纯净</p>
+
+<p><a href="https://www.aichunjing.com">https://www.aichunjing.com</a>{:target=&quot;_blank&quot;}</p>
+
+<hr/>
+
+<h2>插件/脚本</h2>
+
+<p>Chrome插件网</p>
+
+<p><a href="http://www.cnplugins.com/">http://www.cnplugins.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>Extfans扩展迷</p>
+
+<p><a href="https://www.extfans.com/">https://www.extfans.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>极简插件商店</p>
+
+<p><a href="https://chrome.zzzmh.cn/index">https://chrome.zzzmh.cn/index</a>{:target=&quot;_blank&quot;}</p>
+
+<p>画夹科技</p>
+
+<p><a href="https://huajiakeji.com">https://huajiakeji.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>油猴中文网</p>
+
+<p><a href="https://bbs.tampermonkey.net.cn/">https://bbs.tampermonkey.net.cn</a>{:target=&quot;_blank&quot;}</p>
+
+<p>知网caj 转pdf</p>
+
+<p><a href="https://greasyfork.org/zh-CN/scripts/18842-cnki-中国知网-pdf-全文下载-特制版">https://greasyfork.org/zh-CN/scripts/18842-cnki-中国知网-pdf-全文下载-特制版</a>{:target=&quot;_blank&quot;}</p>
+
+<p>谷歌翻译插件</p>
+
+<p><a href="https://chrome.zzzmh.cn/info?token=aapbdbdomjkkjkaonfhkkikfgjllcleb">https://chrome.zzzmh.cn/info?token=aapbdbdomjkkjkaonfhkkikfgjllcleb</a>{:target=&quot;_blank&quot;}</p>
+
+<p>Greasy Fork</p>
+
+<p><a href="https://greasyfork.org/zh-CN">https://greasyfork.org/zh-CN</a>{:target=&quot;_blank&quot;}</p>
+
+<p>Adblock Plus</p>
+
+<p><a href="https://huajiakeji.com/productivity/2014-07/24.html">https://huajiakeji.com/productivity/2014-07/24.html</a>{:target=&quot;_blank&quot;}</p>
+
+<p>Office oline（在线Office）</p>
+
+<p><a href="https://www.extfans.com/chrome-app/ndjpnladcallmjemlbaebfadecfhkepb/">https://www.extfans.com/chrome-app/ndjpnladcallmjemlbaebfadecfhkepb</a>{:target=&quot;_blank&quot;}</p>
+
+<p>豆瓣资源下载</p>
+
+<p><a href="https://greasyfork.org/zh-CN/scripts/329484-豆瓣资源下载大师-1秒搞定豆瓣电影-音乐-图书下载">https://greasyfork.org/zh-CN/scripts/329484-豆瓣资源下载大师-1秒搞定豆瓣电影-音乐-图书下载</a>{:target=&quot;_blank&quot;}</p>
+
+<p>网页翻译助手（划词翻译，输入文本翻译，谷歌整页翻译）</p>
+
+<p><a href="https://greasyfork.org/zh-CN/scripts/389784-网页翻译助手">https://greasyfork.org/zh-CN/scripts/389784-网页翻译助手</a>{:target=&quot;_blank&quot;}</p>
+
+<p>音视频通用下载器（下载网站上的音乐、视频）</p>
+
+<p><a href="https://greasyfork.org/zh-CN/scripts/382057-音视频通用下载器">https://greasyfork.org/zh-CN/scripts/382057-音视频通用下载器</a>{:target=&quot;_blank&quot;}</p>
+
+<hr/>
+
+<h2>网盘搜索/网盘资源</h2>
+
+<p>盘盘资源（阿里、百度、蓝奏、微云、天翼）</p>
+
+<p><a href="https://www.panpanr.com/forum.php">https://www.panpanr.com/forum.php</a>{:target=&quot;_blank&quot;}</p>
+
+<p>阿里小站（阿里云盘）</p>
+
+<p><a href="https://pan.yuankongjian.com">https://pan.yuankongjian.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>阿里云盘资源网站汇总</p>
+
+<p><a href="http://alipan.vip">http://alipan.vip</a>{:target=&quot;_blank&quot;}</p>
+
+<p>阿里云盘小站</p>
+
+<p><a href="http://aliyunshare.cn">http://aliyunshare.cn</a>{:target=&quot;_blank&quot;}</p>
+
+<p>网盘资源分享论坛</p>
+
+<p><a href="https://bbs.misiai.com">https://bbs.misiai.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>哩盘（阿里云盘）</p>
+
+<p>[http://aly.wphl.net/?news<em>1](http://aly.wphl.net/?news</em>1){:target=&quot;_blank&quot;}</p>
+
+<p>~~阿里云盘资源分享~~</p>
+
+<p><a href="https://oook.xyz/">https://oook.xyz</a>{:target=&quot;_blank&quot;}</p>
+
+<p>天翼小站</p>
+
+<p><a href="https://yun.hei521.cn/">https://yun.hei521.cn</a>{:target=&quot;_blank&quot;}</p>
+
+<p>迅雷小站</p>
+
+<p><a href="https://zhan.xunlei.com">https://zhan.xunlei.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>大力盘搜索（百度网盘）</p>
+
+<p>[https://www.dalipan.com/?from=enfi<em>desktop](https://www.dalipan.com/?from=enfi</em>desktop){:target=&quot;_blank&quot;}</p>
+
+<p>潮 资源搜索</p>
+
+<p><a href="http://www.chaoxz.com/">http://www.chaoxz.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>小不点搜索</p>
+
+<p><a href="https://www.xiaoso.net/">https://www.xiaoso.net</a>{:target=&quot;_blank&quot;}</p>
+
+<p>万盘搜索</p>
+
+<p><a href="https://www.wanpan.info/">https://www.wanpan.info</a>{:target=&quot;_blank&quot;}</p>
+
+<p>酷搜（学习资料）</p>
+
+<p><a href="https://www.kolsou.com/">https://www.kolsou.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>盘飞飞（聚合）</p>
+
+<p><a href="https://panfeifei.com/">https://panfeifei.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>Telegram中文搜索</p>
+
+<p><a href="http://www.sssoou.com/">http://www.sssoou.com</a>{:target=&quot;_blank&quot;}</p>
+
+<hr/>
+
+<h2>BT种子、磁力搜索</h2>
+
+<p>种子猫</p>
+
+<p><a href="https://cn.torrentkitty.io">https://cn.torrentkitty.io</a>{:target=&quot;_blank&quot;}</p>
+
+<hr/>
+
+<h2>网盘合集</h2>
+
+<p>曲奇网盘</p>
+
+<p><a href="https://quqi.com">https://quqi.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>Me Drive网盘</p>
+
+<p><a href="https://pan.mebk.org/login">https://pan.mebk.org/login</a>{:target=&quot;_blank&quot;}</p>
+
+<p>MBA网盘</p>
+
+<p><a href="https://pan.mba">https://pan.mba</a>{:target=&quot;_blank&quot;}</p>
+
+<p>小麦魔方（注册可得2T，单文件最大1GB）</p>
+
+<p><a href="https://mofile.own-cloud.cn/">https://mofile.own-cloud.cn</a>{:target=&quot;_blank&quot;}</p>
+
+<p>小麦微盘 | 文件传输服务</p>
+
+<p><a href="https://wei-pan.cn/Login">https://wei-pan.cn/Login</a>{:target=&quot;_blank&quot;}</p>
+
+<hr/>
+
+<h2>临时网盘（文件分享）</h2>
+
+<p>小麦云链</p>
+
+<p><a href="https://ftpod.cn/">https://ftpod.cn</a>{:target=&quot;_blank&quot;}</p>
+
+<hr/>
+
+<h2>黑客友好</h2>
+
+<p>在线短信轰炸</p>
+
+<p><a href="https://sms.cabq.nl/index.php">https://sms.cabq.nl/index.php</a>{:target=&quot;_blank&quot;}</p>
+
+<p>Magi信息检索</p>
+
+<p><a href="https://magi.com">https://magi.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>假装系统升级（Windows、Android、IOS）</p>
+
+<p><a href="https://fakeupdate.net">https://fakeupdate.net</a>{:target=&quot;_blank&quot;}</p>
+
+<p>I know what you download</p>
+
+<p><a href="https://iknowwhatyoudownload.com">https://iknowwhatyoudownload.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>查询电子邮箱/电话是否被攻击</p>
+
+<p><a href="https://haveibeenpwned.com">https://haveibeenpwned.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>查询手机号码是否被标记（推销、外卖、快递、送餐，也可申请清除标记）</p>
+
+<p><a href="http://www.opene164.org.cn/mark/index.html">http://www.opene164.org.cn/mark/index.html</a>{:target=&quot;_blank&quot;}</p>
+
+<p>查询名下所有运营商电话卡</p>
+
+<p><a href="https://getsimnum.caict.ac.cn">https://getsimnum.caict.ac.cn</a>{:target=&quot;_blank&quot;}</p>
+
+<p>遇见数据仓库（ip地址查询、wifi定位查询、在线语音识别）</p>
+
+<p><a href="https://met.red">https://met.red</a>{:target=&quot;_blank&quot;}</p>
+
+<p>免费查IP地址,查经纬度</p>
+
+<p><a href="https://test.darkfireurl.xyz/queryIP.html">https://test.darkfireurl.xyz/queryIP.html</a>{:target=&quot;_blank&quot;}</p>
+
+<p>几个查IP的网站</p>
+
+<p><a href="https://www.chaipip.com/aiwen.html">https://www.chaipip.com/aiwen.html</a>{:target=&quot;_blank&quot;}</p>
+
+<p> <a href="https://met.red/h/location/queryIp">https://met.red/h/location/queryIp</a>{:target=&quot;_blank&quot;}</p>
+
+<p>QQ互联官网</p>
+
+<p><a href="https://connect.qq.com">https://connect.qq.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>站长之家（SEO/Alexa/WHOIS/友链检测/IP/PING/备案查询）</p>
+
+<p><a href="http://mtool.chinaz.com">http://mtool.chinaz.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>工信数据</p>
+
+<p><a href="https://www.miit.gov.cn/gxsj/index.html">https://www.miit.gov.cn/gxsj/index.html</a>{:target=&quot;_blank&quot;}</p>
+
+<hr/>
+
+<h2>其它网站</h2>
+
+<p>中国历史老照片</p>
+
+<p><a href="https://www.hpcbristol.net">https://www.hpcbristol.net</a>{:target=&quot;_blank&quot;}</p>
+
+<p>Breathingearth（各个国家的二氧化碳排放量、出生率和死亡率）</p>
+
+<p><a href="http://www.breathingearth.net">http://www.breathingearth.net</a>{:target=&quot;_blank&quot;}</p>
+
+<p>标准地图服务系统</p>
+
+<p><a href="http://bzdt.ch.mnr.gov.cn">http://bzdt.ch.mnr.gov.cn</a>{:target=&quot;_blank&quot;}</p>
+
+<p>流体模拟</p>
+
+<p><a href="https://paveldogreat.github.io/WebGL-Fluid-Simulation">https://paveldogreat.github.io/WebGL-Fluid-Simulation</a>{:target=&quot;_blank&quot;}</p>
+
+<p>支付宝到账语音生成器</p>
+
+<p><a href="https://saythemoney.github.io">https://saythemoney.github.io</a>{:target=&quot;_blank&quot;}</p>
+
+<p>让我帮你百度一下</p>
+
+<p><a href="https://baidu.nianbroken.top/">https://baidu.nianbroken.top</a>{:target=&quot;_blank&quot;}</p>
+
+<p>搜英文缩写</p>
+
+<p><a href="http://m.shortof.com">http://m.shortof.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p><a href="http://m.shortof.com">http://shortof.com</a>{:target=&quot;_blank&quot;}</p>
+
+<p>阿俊的优惠网站，淘宝，京东，拼多多查券。</p>
+
+<p><a href="http://134.175.108.24/index.php?r=index/wap">http://134.175.108.24/index.php?r=index/wap</a>{:target=&quot;_blank&quot;}</p>
+
+<p>cxk打篮球（在线小游戏）</p>
+
+<p><a href="http://cxk.ssrr.one">http://cxk.ssrr.one</a>{:target=&quot;_blank&quot;}</p>
+
+<p>在线doc游戏（Alt 显示菜单、取消操作）</p>
+
+<p><a href="https://dos.zczc.cz">https://dos.zczc.cz</a>{:target=&quot;_blank&quot;}</p>
+
+<p><a href="https://github.com/rwv/chinese-dos-games">https://github.com/rwv/chinese-dos-games</a>{:target=&quot;_blank&quot;}</p>
+
+<hr/>
