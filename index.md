@@ -1,4 +1,4 @@
-# 网站大全　——欢迎访问Xie Guibo的小站
+### 网站大全　——欢迎访问Xie Guibo的小站
 
 ## 常用网站
 
@@ -338,6 +338,10 @@ Gofile
 拷贝兔
  
 [https://cp.anyknew.com](https://cp.anyknew.com){:target="_blank"}
+
+小麦云链
+ 
+[https://ftpod.cn](https://ftpod.cn/){:target="_blank"}
  
  
  
@@ -1020,23 +1024,13 @@ MBA网盘
  
 [https://mofile.own-cloud.cn](https://mofile.own-cloud.cn/){:target="_blank"}
  
-小麦微盘 | 文件传输服务
+小麦微盘（文件传输服务）
  
 [https://wei-pan.cn/Login](https://wei-pan.cn/Login){:target="_blank"}
  
  
 ---
  
- 
-## 临时网盘（文件分享）
- 
-小麦云链
- 
-[https://ftpod.cn](https://ftpod.cn/){:target="_blank"}
- 
- 
- 
----
  
  
 ## 黑客友好
