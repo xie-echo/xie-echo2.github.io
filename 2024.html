@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>网址合集</title> <!-- 设置网页标题为"网址合集" -->
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* 设置字体样式为Arial，sans-serif */
+            background-color: #f2f2f2; /* 设置背景颜色为浅灰色 */
+            margin: 0; /* 去除默认的页面边距 */
+            padding: 0; /* 去除默认的页面内边距 */
+        }
+        
+        header {
+            background-color: #333; /* 设置头部背景颜色为深灰色 */
+            color: #fff; /* 设置头部字体颜色为白色 */
+            padding: 20px; /* 设置头部内边距为20px */
+            text-align: center; /* 使头部文本居中对齐 */
+        }
+        
+        h1 {
+            margin: 0; /* 去除标题的外边距 */
+            font-size: 32px; /* 设置标题字体大小为32px */
+        }
+        
+        nav {
+            position: sticky; /* 设置导航栏为"sticky"定位方式 */
+            top: 0px; /* 调整这个值以适应你的页面布局 */
+            position: fixed; /* 设置导航栏为"fixed"定位方式 */
+            top: 0; /* 将导航栏固定在页面的顶部 */
+            right: 0; /* 将导航栏固定在页面的右侧 */
+            background-color: #666; /* 设置导航栏背景颜色为深灰色 */
+            color: #000; /* 设置导航栏字体颜色为黑色 */
+            padding: 10px; /* 设置导航栏内边距为10px */
+            border-radius: 5px; /* 设置导航栏边框的圆角为5px */
+            z-index: 9999; /* 设置导航栏的叠加顺序为最顶层 */
+            width: 8%; /* 设置导航栏的宽度为页面宽度的8% */
+        }
+        
+        nav ul {
+            list-style-type: none; /* 去除导航栏的默认样式 */
+            margin: 0; /* 去除导航栏的外边距 */
+            padding: 0; /* 去除导航栏的内边距 */
+            text-align: center; /* 使导航栏文本居中对齐 */
+        }
+        
+        nav ul li {
+            margin-bottom: 5px; /* 设置每个导航栏项之间的底部边距为5px */
+        }
+        
+        nav ul li a {
+            color: #000; /* 设置导航栏项的字体颜色为黑色 */
+            text-decoration: none; /* 去除导航栏项的下划线 */
+        }
+        
+        main {
+            padding: 50px; /* 设置主要内容区域的内边距为50px */
+        }
+        
+        h2 {
+            margin: 20px 0; /* 设置标题的外边距为20px（顶部）和0（底部） */
+            font-size: 20px; /* 设置标题字体大小为20px */
+            color: #333; /* 设置标题字体颜色为深灰色 */
+        }
+        
+        ul {
+            list-style-type: none; /* 去除列表的默认样式 */
+            padding: 0; /* 去除列表的内边距 */
+            margin: 0; /* 去除列表的外边距 */
+        }
+        
+        li {
+            margin-bottom: 10px; /* 设置每个列表项之间的底部边距为10px */
+}
+        
+       li a {
+           display: block; /* 将元素显示为块级元素 */
+           background-color: #fff; /* 设置背景颜色为白色 */
+           padding: 10px; /* 设置内边距为10像素 */
+           border-radius: 5px; /* 设置边框圆角为5像素 */
+           color: #333; /* 设置文字颜色为深灰色 */
+           text-decoration: none; /* 去除下划线装饰 */
+           transition: background-color 0.3s; /* 设置背景颜色的过渡效果，持续时间为0.3秒 */
+}
+
+/* 设置鼠标悬停时的样式 */
+      li a:hover {
+           background-color: #ddd; /* 设置背景颜色为浅灰色 */
+}
+
+/* 设置footer的样式 */
+     footer {
+          background-color: #666; /* 设置背景颜色为深灰色 */
+          color: #000; /* 设置文字颜色为黑色 */
+          padding: 20px; /* 设置内边距为20像素 */
+          text-align: center; /* 将文字居中对齐 */
+}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>网址合集</h1>
+    </header>
+    
+    <nav id="navbar">
+        <ul>
+            <li><a href="#category1" style="font-size: 15px;">常用网站</a></li>
+            <li><a href="#category2" style="font-size: 15px;">音乐/影视</a></li>
+            <li><a href="#category3" style="font-size: 15px;">分类3</a></li>
+        </ul>
+    </nav>
+
+
+
+<!-- 设置搜索框样式 -->
+    <title>百度搜索框示例</title>
+    <style>
+        /* 样式化输入框和图标 */
+        .search-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .search-input {
+            padding: 10px;
+            left: 50;
+            width: 60%;
+            border: 1px solid transparent;
+            border-radius: 20px;
+            font-size: 16px;
+            margin: 0 5px;
+            transition: border 0.3s;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border: 1px solid black;
+        }
+
+        .search-icon {
+            margin-right: 10px;
+            margin-left: 10px;
+        }
+
+        #suggestions-container {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            max-height: 150px;
+            overflow-y: auto;
+            background-color: #fff;
+            border: 1px solid #000;
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+            display: none;
+            scrollbar-width: thin;
+        }
+
+        #suggestions-container::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        #suggestions-container::-webkit-scrollbar-thumb {
+            background-color: #888;
+            border-radius: 2.5px;
+        }
+
+        .suggestion-item {
+            margin-top: 5px;
+            cursor: pointer;
+        }
+
+        .suggestion-item:hover {
+            background-color: #f5f5f5;
+        }
+    </style>
+</head>
+<body>
+    <div class="search-container">
+        <img class="search-icon" src="https://xie-echo.github.io/baidu.svg" alt="百度图标" style="width: 30px; height: auto;">
+        <input class="search-input" type="text" id="searchInput" placeholder="请输入搜索关键词" oninput="fetchSuggestions(this.value)" onkeydown="handleKeyDown(event)">
+        <a href="#" onclick="searchBaidu()">
+            <img class="search-icon" src="https://xie-echo.github.io/searchbtn.svg" alt="搜索图标" style="width: 30px; height: auto;">
+        </a>
+        <ul id="suggestions-container"></ul>
+    </div>
+
+    <script>
+        var timeout;
+        var searchKeyword = '';
+
+        function fetchSuggestions(keyword) {
+            clearTimeout(timeout);
+
+            if (keyword === '') {
+                document.getElementById('suggestions-container').style.display = 'none';
+                return;
+            }
+
+            searchKeyword = keyword;
+
+            var url = 'https://www.baidu.com/sugrec?prod=pc&wd=' + keyword + '&p=3&cb=callback';
+            var script = document.createElement('script');
+            script.src = url;
+            document.body.appendChild(script);
+        }
+
+        function callback(data) {
+            var suggestions = data.g;
+            var suggestionsContainer = document.getElementById('suggestions-container');
+            suggestionsContainer.innerHTML = '';
+
+            if (suggestions.length > 0) {
+                for (var i = 0; i < suggestions.length; i++) {
+                    var suggestion = suggestions[i].q;
+                    var suggestionItem = document.createElement('li');
+                    suggestionItem.className = 'suggestion-item';
+                    suggestionItem.textContent = suggestion;
+                    suggestionItem.setAttribute('onclick', 'searchSuggestion(this)');
+                    suggestionsContainer.appendChild(suggestionItem);
+                }
+
+                suggestionsContainer.style.display = 'block';
+            } else {
+                suggestionsContainer.style.display = 'none';
+            }
+        }
+
+        function searchSuggestion(element) {
+            var suggestion = element.textContent;
+            document.getElementById('searchInput').value = suggestion;
+            document.getElementById('suggestions-container').style.display = 'none';
+            searchBaidu();
+        }
+
+        function searchBaidu() {
+            var keyword = document.getElementById('searchInput').value;
+            var searchUrl = 'https://www.baidu.com/s?wd=' + encodeURIComponent(keyword);
+            window.open(searchUrl, "_blank");
+            return false; // 防止页面跳转
+        }
+
+        function handleKeyDown(event) {
+            if (event.keyCode === 13) { // 13 表示回车键
+                searchBaidu();
+            }
+        }
+    </script>
+    
+
+
+
+
+
+    <main>
+        <h2 id="category1">常用网站</h2>
+<style>
+    ul {
+        display: flex; /* 设置元素为弹性盒子 */
+        flex-wrap: wrap; /* 元素超出容器宽度时自动换行 */
+        gap: 20px; /* 设置相邻子元素之间的间隔为20像素 */
+        padding: 0; /* 设置内边距为0，不留空白 */
+        list-style: none; /* 去除列表项的默认样式 */
+    }
+    li {
+        flex: 0 0 calc(100% / 6 - 20px); /* 设置列表项在弹性容器中的宽度为每行显示6个，并考虑间隔的影响 */
+        width: 2%; /* 设置列表项的宽度为2% */
+    }
+    li a {
+        display: block; /* 将链接元素显示为块级元素 */
+        background-color: white; /* 设置链接元素的背景颜色为白色 */
+        padding: 10px; /* 设置链接元素的内边距为10像素 */
+        text-align: center; /* 设置链接元素的文本居中对齐 */
+        border-radius: 60px; /* 设置链接元素的边框半径为60像素，使其呈现圆形 */
+    }
+</style>
+
+        <ul>
+            <li><a href="https://www.jianfast.com/" title="https://www.jianfast.com/" target="_blank">简法主页</a></li>
+            <li><a href="https://dama.lu/" title="https://dama.lu/" target="_blank">大马路</a></li>
+            <li><a href="https://www.taobao.com/" title="https://www.taobao.com/" target="_blank">淘宝</a></li>
+            <li><a href="https://jd.com/" title="https://jd.com/" target="_blank">京东</a></li>
+            <li><a href="https://s.weibo.com/top/summary?cate=realtimehot" title="https://s.weibo.com/top/summary?cate=realtimehot" target="_blank">微博热搜榜</a></li>
+            <li><a href="https://tophub.today/n/74Kvx59dkx" title="https://tophub.today/n/74Kvx59dkx" target="_blank">IT之家热榜</a></li>
+            <li><a href="https://baike.baidu.com/" title="https://baike.baidu.com/" target="_blank">百度百科</a></li>         
+            <li><a href="https://www.douban.com/search?q=" title="https://www.douban.com/search?q=" target="_blank">豆瓣</a></li>
+            <li><a href="https://www.zhihu.com/" title="https://www.zhihu.com/" target="_blank">知乎</a></li>
+            <li><a href="https://www.bilibili.com/" title="https://www.bilibili.com/" target="_blank">B站</a></li>
+        </ul>
+        
+        <h2 id="category2">音乐/影视</h2>
+        <style>
+    ul {
+        display: flex; /* 设置元素为弹性盒子 */
+        gap: 20px; /* 设置相邻子元素之间的间隔为20像素 */
+        padding: 0; /* 设置内边距为0，不留空白 */
+        list-style: none; /* 去除列表项的默认样式 */
+    }
+    li {
+        flex: 0 0 15%; /* 设置列表项在弹性容器中的宽度为10% */
+        width: 2%; /* 设置列表项的宽度为2% */
+    }
+    li a {
+        display: block; /* 将链接元素显示为块级元素 */
+        background-color: white; /* 设置链接元素的背景颜色为白色 */
+        padding: 10px; /* 设置链接元素的内边距为10像素 */
+        text-align: center; /* 设置链接元素的文本居中对齐 */
+        border-radius: 60px; /* 设置链接元素的边框半径为60像素，使其呈现圆形 */
+    }
+        </style>
+
+        <ul>
+             <li><a href="https://www.baidu.com/" title="https://www.baidu.com/" target="_blank">百度搜索</a></li>
+             <li><a href="https://www.jianfast.com/" title="https://www.jianfast.com/" target="_blank">简法主页</a></li>
+             <li><a href="https://dama.lu/" title="https://dama.lu/" target="_blank">大马路</a></li>
+        </ul>
+        
+        <h2 id="category3">分类3</h2>
+        <style>
+    ul {
+        display: flex; /* 设置元素为弹性盒子 */
+        gap: 20px; /* 设置相邻子元素之间的间隔为20像素 */
+        padding: 0; /* 设置内边距为0，不留空白 */
+        list-style: none; /* 去除列表项的默认样式 */
+    }
+    li {
+        flex: 0 0 15%; /* 设置列表项在弹性容器中的宽度为10% */
+        width: 2%; /* 设置列表项的宽度为2% */
+    }
+    li a {
+        display: block; /* 将链接元素显示为块级元素 */
+        background-color: white; /* 设置链接元素的背景颜色为白色 */
+        padding: 10px; /* 设置链接元素的内边距为10像素 */
+        text-align: center; /* 设置链接元素的文本居中对齐 */
+        border-radius: 60px; /* 设置链接元素的边框半径为60像素，使其呈现圆形 */
+    }
+        </style>
+
+        <ul>
+             <li><a href="https://www.baidu.com/" title="https://www.baidu.com/" target="_blank">百度搜索</a></li>
+             <li><a href="https://www.jianfast.com/" title="https://www.jianfast.com/" target="_blank">简法主页</a></li>
+             <li><a href="https://dama.lu/" title="https://dama.lu/" target="_blank">大马路</a></li>
+        </ul>
+    </main>
+    
+    <footer>
+        &copy; 网址合集 Created by XieGuibo 2023.12.24
+    </footer>
+</body>
+</html>
+
+
+
