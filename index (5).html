@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>网址合集</title> <!-- 设置网页标题为"网址合集" -->
+    <style>
+        /* 设置全局样式 */
+        body {
+            font-family: Arial, sans-serif; /* 设置字体样式 */
+            background-color: #f2f2f2; /* 设置背景颜色 */
+            margin: 0; /* 清除页面边距 */
+            padding: 0; /* 清除页面内边距 */
+        }
+
+        /* 设置顶部标题栏样式 */
+        header {
+            background-color: #333; /* 设置背景颜色 */
+            color: #fff; /* 设置文字颜色 */
+            padding: 10px; /* 设置内边距 */
+            text-align: center; /* 设置文字居中对齐 */
+        }
+
+        /* 设置标题样式 */
+        h1 {
+            margin: 0; /* 清除外边距 */
+            font-size: 25px; /* 设置字体大小 */
+        }
+
+        /* 设置导航栏样式 */
+        nav {
+            background-color: #666; /* 设置背景颜色 */
+            color: #000; /* 设置文字颜色 */
+            padding: 5px; /* 设置内边距 */
+            border-radius: 0px; /* 设置边框圆角 */
+            text-align: center; /* 设置文字居中对齐 */
+            position: sticky; /* 设置定位为sticky */
+            top: 0; /* 设置顶部偏移量为0 */
+            width: 100%; /* 设置宽度为100% */
+            z-index: 9999; /* 设置层级为最高 */
+        }
+
+        /* 设置导航栏列表样式 */
+        nav ul {
+            list-style-type: none; /* 去除列表样式 */
+            margin: 0; /* 清除外边距 */
+            padding: 0; /* 清除内边距 */
+            display: flex; /* 设置为Flex布局 */
+            flex-wrap: wrap; /* 设置自动换行 */
+            justify-content: center; /* 设置导航栏内容居中对齐 */
+        }
+
+        /* 设置导航栏列表项样式 */
+        nav ul li {
+            margin-bottom: 0px; /* 设置底部外边距 */
+            white-space: nowrap; /* 不换行 */
+            font-size: 12px; /* 设置字体大小 */
+        }
+
+        /* 设置导航栏链接样式 */
+        nav ul li a {
+            display: block; /* 设置为块级元素 */
+            background-color: #fff; /* 设置背景颜色 */
+            padding: 5px; /* 设置内边距 */
+            border-radius: 50px; /* 设置边框圆角 */
+            color: #333; /* 设置文字颜色 */
+            text-decoration: none; /* 去除下划线 */
+            transition: background-color 0.3s; /* 设置过渡效果 */
+        }
+
+        /* 设置导航栏链接悬停样式 */
+        nav ul li a:hover {
+            background-color: #ddd; /* 设置背景颜色 */
+        }
+
+        /* 设置主要内容样式 */
+        main {
+            padding: 20px; /* 设置内边距 */
+            clear: both; /* 清除浮动 */
+        }
+
+        /* 设置内容标题样式 */
+        h2 {
+            margin: 10px 0; /* 设置外边距 */
+            font-size: 18px; /* 设置字体大小 */
+            color: #333; /* 设置文字颜色 */
+        }
+
+        /* 设置内容列表样式 */
+        ul {
+            list-style-type: none; /* 去除列表样式 */
+            padding: 0; /* 清除内边距 */
+            margin: 0; /* 清除外边距 */
+        }
+
+        /* 设置内容列表项样式 */
+        li {
+            margin-bottom: 5px; /* 设置底部外边距 */
+        }
+
+        /* 设置内容链接样式 */
+        li a {
+            display: block; /* 设置为块级元素 */
+            background-color: #fff; /* 设置背景颜色 */
+            padding: 5px; /* 设置内边距 */
+            border-radius: 5px; /* 设置边框圆角 */
+            color: #333; /* 设置文字颜色 */
+            text-decoration: none; /* 去除下划线 */
+            transition: background-color 0.3s; /* 设置过渡效果 */
+        }
+
+        /* 设置内容链接悬停样式 */
+        li a:hover {
+            background-color: #ddd; /* 设置背景颜色 */
+        }
+
+        /* 设置底部栏样式 */
+        footer {
+            background-color: #666; /* 设置背景颜色 */
+            color: #000; /* 设置文字颜色 */
+            padding: 12px; /* 设置内边距 */
+            text-align: center; /* 设置文字居中对齐 */
+        }
+    </style>
+
+
+
+</head>
+<link rel="shortcut icon" href="https://xie-echo.github.io/xie-echo2.github.io/icon.ico" />
+<body>
+    <header>
+        <h1>网址合集 [Created by XieGuibo]</h1>
+    </header>
+    
+    <nav id="navbar">
+        <ul>
+            <li><a href="#category1" style="font-size: 15px;">常用网站</a></li>
+            <li><a href="#category2" style="font-size: 15px;">音乐/影视</a></li>
+            <li><a href="#category3" style="font-size: 15px;">办公/工作</a></li>
+            <li><a href="#category4" style="font-size: 15px;">在线工具</a></li>
+            <li><a href="#category5" style="font-size: 15px;">素材/模板</a></li>
+            <li><a href="#category6" style="font-size: 15px;">软件/IT</a></li>
+        </ul>
+    </nav>
+
+
+
+<!-- 设置搜索框样式 -->
+    <meta charset="UTF-8">
+    <title>百度搜索框示例</title>
+    <style>
+        /* 样式化输入框和图标 */
+        .search-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .search-input {
+            padding: 10px;
+            left: 50;
+            width: 60%;
+            border: 1px solid transparent;
+            border-radius: 20px;
+            font-size: 16px;
+            margin: 0 5px;
+            transition: border 0.3s;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border: 1px solid black;
+        }
+
+        .search-icon {
+            margin-right: 10px;
+            margin-left: 10px;
+        }
+
+        #suggestions-container {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            max-height: 150px;
+            overflow-x: auto;
+            white-space: nowrap; /* 保持联想词水平显示 */
+            background-color: #fff;
+            border: 1px solid #000;
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+            display: none;
+            scrollbar-width: thin;
+        }
+
+        #suggestions-container::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        #suggestions-container::-webkit-scrollbar-thumb {
+            background-color: #888;
+            border-radius: 2.5px;
+        }
+
+        .suggestion-item {
+            margin-top: 5px;
+            cursor: pointer;
+        }
+
+        .suggestion-item:hover {
+            background-color: #f5f5f5;
+        }
+    </style>
+</head>
+<body>
+    <div class="search-container">
+        <img class="search-icon" src="https://xie-echo.github.io/xie-echo2.github.io/baidu.svg" alt="百度图标" style="width: 30px; height: auto;">
+        <input class="search-input" type="text" id="searchInput" placeholder="请输入搜索关键词" oninput="fetchSuggestions(this.value)" onkeydown="handleKeyDown(event)">
+        <a href="#" onclick="searchBaidu()">
+            <img class="search-icon" src="https://xie-echo.github.io/xie-echo2.github.io/searchbtn.svg" alt="搜索图标" style="width: 30px; height: auto;">
+        </a>
+        <ul id="suggestions-container"></ul>
+    </div>
+
+    <script>
+        var timeout;
+        var searchKeyword = '';
+
+        function fetchSuggestions(keyword) {
+            clearTimeout(timeout);
+
+            if (keyword === '') {
+                document.getElementById('suggestions-container').style.display = 'none';
+                return;
+            }
+
+            searchKeyword = keyword;
+
+            var url = 'https://www.baidu.com/sugrec?prod=pc&wd=' + keyword + '&p=3&cb=callback';
+            var script = document.createElement('script');
+            script.src = url;
+            document.body.appendChild(script);
+        }
+
+        function callback(data) {
+            var suggestions = data.g;
+            var suggestionsContainer = document.getElementById('suggestions-container');
+            suggestionsContainer.innerHTML = '';
+
+            if (suggestions.length > 0) {
+                for (var i = 0; i < suggestions.length; i++) {
+                    var suggestion = suggestions[i].q;
+                    var suggestionItem = document.createElement('li');
+                    suggestionItem.className = 'suggestion-item';
+                    suggestionItem.textContent = suggestion;
+                    suggestionItem.setAttribute('onclick', 'searchSuggestion(this)');
+                    suggestionsContainer.appendChild(suggestionItem);
+                }
+
+                suggestionsContainer.style.display = 'block';
+            } else {
+                suggestionsContainer.style.display = 'none';
+            }
+        }
+
+        function searchSuggestion(element) {
+            var suggestion = element.textContent;
+            document.getElementById('searchInput').value = suggestion;
+            document.getElementById('suggestions-container').style.display = 'none';
+            searchBaidu();
+        }
+
+        function searchBaidu() {
+            var keyword = document.getElementById('searchInput').value;
+            var searchUrl = 'https://www.baidu.com/s?wd=' + encodeURIComponent(keyword);
+            window.open(searchUrl, "_blank");
+            return false; // 防止页面跳转
+        }
+
+        function handleKeyDown(event) {
+            if (event.keyCode === 13) { // 13 表示回车键
+                searchBaidu();
+            }
+        }
+    </script>
+    
+
+
+
+
+
+    <main>
+        <h2 id="category1">常用网站</h2>
+        <style>
+    ul {
+        display: flex; /* 设置元素为弹性盒子 */
+        flex-wrap: wrap; /* 元素超出容器宽度时自动换行 */
+        gap: 20px; /* 设置相邻子元素之间的间隔为20像素 */
+        padding: 0; /* 设置内边距为0，不留空白 */
+        list-style: none; /* 去除列表项的默认样式 */
+    }
+    li {
+        flex: 0 0 calc(90% / 6 - 20px); /* 设置列表项在弹性容器中的宽度为每行显示6个，并考虑间隔的影响 */
+        width: 2%; /* 设置列表项的宽度为2% */
+    }
+    li a {
+        display: block; /* 将链接元素显示为块级元素 */
+        background-color: white; /* 设置链接元素的背景颜色为白色 */
+        padding: 15px; /* 设置链接元素的内边距为10像素 */
+        text-align: center; /* 设置链接元素的文本居中对齐 */
+        border-radius: 50px; /* 设置链接元素的边框半径为50像素，使其呈现圆形 */
+    }
+        </style>
+
+        <ul>
+            <li><a href="https://www.jianfast.com/" title="很好用的导航网站" target="_blank">简法主页</a></li>
+            <li><a href="https://xie-echo.github.io/xie-echo2.github.io/" title="自建导航网站" target="_blank">网站导航</a></li>
+            <li><a href="https://dama.lu/" title="https://dama.lu" target="_blank">大马路</a></li>
+            <li><a href="https://www.taobao.com/" title="https://www.taobao.com" target="_blank">淘宝</a></li>
+            <li><a href="https://jd.com/" title="https://jd.com" target="_blank">京东</a></li>
+            <li><a href="https://s.weibo.com/top/summary?cate=realtimehot" title="https://s.weibo.com/top/summary?cate=realtimehot" target="_blank">微博热搜榜</a></li>
+            <li><a href="https://tophub.today/n/74Kvx59dkx" title="https://tophub.today/n/74Kvx59dkx" target="_blank">IT之家热榜</a></li>
+            <li><a href="http://www.people.com.cn" title="新闻、时事" target="_blank">人民网</a></li>
+            <li><a href="https://map.baidu.com" title="https://map.baidu.com" target="_blank">百度地图</a></li>
+            <li><a href="https://fanyi.baidu.com" title="https://fanyi.baidu.com" target="_blank">百度翻译</a></li> 
+            <li><a href="https://www.douban.com" title="电影、音乐、图书" target="_blank">豆瓣</a></li>
+            <li><a href="https://www.zhihu.com/" title="https://www.zhihu.com" target="_blank">知乎</a></li>
+            <li><a href="https://www.douyin.com" title="短视频平台" target="_blank">抖音</a></li> 
+            <li><a href="https://www.bilibili.com/" title="https://www.bilibili.com" target="_blank">B站</a></li>
+            <li><a href="https://v.qq.com/" title="追剧" target="_blank">腾讯视频</a></li>
+            <li><a href="https://www.iqiyi.com/" title="追剧" target="_blank">爱奇艺</a></li>
+        </ul>
+
+
+
+        
+        <h2 id="category2">音乐/影视</h2>
+        <ul>
+            <li><a href="http://tool.liumingye.cn/music/#/" title="在线听音乐、下载音乐" target="_blank">MyFreeMP3音乐</a></li>
+            <li><a href="https://cupfox.love/" title="很好用的免费看电影网站" target="_blank">茶杯狐</a></li>
+            <li><a href="https://www.freeok.vip/" title="在线观看" target="_blank">Freeok影视</a></li>
+            <li><a href="https://www.dytt89.com/" title="在线观看、磁力下载" target="_blank">电影天堂</a></li>
+            <li><a href="https://www.xiepp.cc/" title="在线观看、磁力下载" target="_blank">下片网</a></li>
+            <li><a href="https://www.mp4br.com/" title="在线观看、磁力下载" target="_blank">mp4吧</a></li>
+        </ul>
+
+
+
+        
+        <h2 id="category3">办公/工作</h2>
+        <ul>
+             <li><a href="https://mail.qq.com" title="https://mail.qq.com" target="_blank">QQ邮箱</a></li>
+            <li><a href="https://mail.163.com" title="https://mail.163.com" target="_blank">163邮箱</a></li> 
+             <li><a href="https://outlook.live.com/mail/0/inbox" title="https://outlook.live.com/mail/0/inbox" target="_blank">Outlook邮箱</a></li> 
+             <li><a href="https://docs.qq.com/" title="在线文档、协同文档" target="_blank">腾讯文档</a></li>
+             <li><a href="https://www.kdocs.cn/" title="在线文档、协同文档" target="_blank">金山文档</a></li>
+        </ul>
+
+
+        
+        <h2 id="category4">在线工具</h2>
+        <ul>
+             <li><a href="http://www.atoolbox.net" title="http://www.atoolbox.net" target="_blank">一个工具箱</a></li>
+             <li><a href="https://s.threatbook.com" title="查询文件是否有病毒" target="_blank">微步查毒</a></li>
+             <li><a href="https://www.virscan.org" title="查询文件是否有病毒" target="_blank">virscan查毒</a></li>
+             <li><a href="https://convertio.co/zh" title="很好用的文件格式转换" target="_blank">convertio格式转换</a></li>
+             <li><a href="https://zh.pickfrom.net/" title="https://zh.pickfrom.net/" target="_blank">格式转换</a></li>
+             <li><a href="https://tools.pdf24.org/zh" title="pdf转换、pdf编辑" target="_blank">pdf编辑转换</a></li>
+             <li><a href="https://filehelper.weixin.qq.com" title="传文件、传文字" target="_blank">微信文件传输助手</a></li>
+             <li><a href="https://cowtransfer.com" title="传文件" target="_blank">奶牛快传</a></li>
+             <li><a href="https://musetransfer.com" title="传文件" target="_blank">Muse快传</a></li>
+             <li><a href="https://www.wenshushu.cn" title="传文件" target="_blank">文叔叔快传</a></li>
+             <li><a href="https://beecut.cn/online-video-editor" title="https://beecut.cn/online-video-editor" target="_blank">在线剪辑视频</a></li>
+             <li><a href="https://www.gaituya.com" title="在线修改图片" target="_blank">改图鸭</a></li>
+             <li><a href="https://cli.im" title="上传文字、文件生成二维码" target="_blank">草料二维码</a></li>
+             <li><a href="https://kinh.speedtestcustom.com" title="https://kinh.speedtestcustom.com" target="_blank">网速测试</a></li>
+             <li><a href="http://tool.liumingye.cn/m3u8" title="http://tool.liumingye.cn/m3u8" target="_blank">m3u8在线播放</a></li>
+        </ul>
+
+        
+        
+        <h2 id="category5">素材/模板</h2>
+        <ul>
+             <li><a href="https://bz.zzzmh.cn" title="很好用的壁纸下载网站" target="_blank">极简壁纸</a></li>
+             <li><a href="https://www.pexels.com/zh-cn" title="下载图片素材" target="_blank">Pexels图片</a></li>
+             <li><a href="https://pixabay.com/zh" title="下载图片素材" target="_blank">Pixabay图片</a></li>
+             <li><a href="http://pngimg.com" title="下载透明底图片素材" target="_blank">pngimg透明底图片</a></li>
+             <li><a href="https://anime-pictures.net/?lang=zh_CN" title="下载动漫图片" target="_blank">动漫壁纸</a></li>
+             <li><a href="https://getwallpapers.com" title="下载图片素材" target="_blank">GetWallpapers</a></li>
+             <li><a href="https://picjumbo.com" title="下载图片素材" target="_blank">Picjumbo</a></li>
+             <li><a href="https://wallhaven.cc" title="下载图片素材" target="_blank">Wallhaven</a></li>
+             <li><a href="https://mixkit.co/free-stock-video" title="下载视频素材" target="_blank">视频素材下载</a></li>
+             <li><a href="https://www.hellofont.cn" title="下载字体" target="_blank">字体下载</a></li>
+             <li><a href="http://www.mobanwang.com" title="下载网站模板" target="_blank">模板王</a></li>
+             <li><a href="http://bzdt.ch.mnr.gov.cn" title="下载超高清地图" target="_blank">标准地图下载</a></li>
+             <li><a href="https://www.mygraphpaper.com/index.php?lang=zh-hans" title="制作、下载各类方格纸" target="_blank">方格纸下载</a></li>
+            <li><a href="https://www.1ppt.com" title="下载PPT模板" target="_blank">第一PPT</a></li>
+        </ul>
+
+
+
+        
+        <h2 id="category6">软件/IT</h2>
+        <ul>
+             <li><a href="https://www.423down.com" title="搜索软件、下载软件" target="_blank">423Down</a></li>
+             <li><a href="https://filehippo.com/zh" title="搜索软件、下载软件" target="_blank">filehippo</a></li>
+             <li><a href="https://www.iplaysoft.com" title="搜索软件、下载软件" target="_blank">异次元</a></li>
+             <li><a href="https://www.nruan.com" title="搜索软件、下载软件" target="_blank">N软网</a></li>
+             <li><a href="https://www.appinn.com" title="搜索软件、下载软件" target="_blank">小众软件</a></li>
+             <li><a href="https://www.yxssp.com" title="搜索软件、下载软件" target="_blank">异星软件空间</a></li>
+             <li><a href="https://msdn.itellyou.cn" title="系统镜像、office安装包" target="_blank">itellyou</a></li>
+             <li><a href="https://x1g.la" title="软件、科技（个人博客）" target="_blank">下一个好软件</a></li>
+             <li><a href="https://www.dzrjk.com" title="下载软件（个人博客）" target="_blank">大众软件库</a></li>
+             <li><a href="https://www.mefcl.com" title="下载软件（个人博客）" target="_blank">mefcl</a></li>
+             <li><a href="https://www.runningcheese.com" title="软件、科技（个人博客）" target="_blank">奔跑中的奶酪</a></li>
+             <li><a href="https://www.maxiaobang.com" title="软件、科技（个人博客）" target="_blank">马小帮</a></li>
+             <li><a href="http://blog.darler.cn" title="软件、科技（个人博客）" target="_blank">极速翱翔</a></li>
+             <li><a href="https://www.cnblogs.com" title="程序员博客" target="_blank">博客园</a></li>
+             <li><a href="https://www.csdn.net" title="https://www.csdn.net" target="_blank">CSDN</a></li>
+             <li><a href="https://www.52pojie.cn" title="科技、软件论坛" target="_blank">吾爱破解论坛</a></li>
+             <li><a href="https://github.com" title="https://github.com" target="_blank">Github</a></li>
+             
+        </ul>
+
+
+
+        
+
+    </main>
+    
+    <footer>
+        &copy; 网址合集 Version 2023.12.24
+    </footer>
+</body>
+</html>
+
+
+
